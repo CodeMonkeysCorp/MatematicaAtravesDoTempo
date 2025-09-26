@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc5pqes5ejcxs"]
+
+[ext_resource type="Texture2D" uid="uid://4uayhfskpa4" path="res://assets/Cenarios/Egito de longe.png" id="1_brnl1"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_brnl1")
+
+[node name="MenuBox" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MenuBox"]
+layout_mode = 2
+
+[node name="BtnJogar" type="Button" parent="MenuBox"]
+layout_mode = 2
+
+[node name="BtnOpcoes" type="Button" parent="MenuBox"]
+layout_mode = 2
+
+[node name="BtnCreditos" type="Button" parent="MenuBox"]
+layout_mode = 2
+
+[node name="BtnSair" type="Button" parent="MenuBox"]
+layout_mode = 2

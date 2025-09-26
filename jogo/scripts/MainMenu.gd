@@ -1,25 +1,25 @@
-# res://scripts/MainMenu.gd
 extends Control
 
-@onready var btn_jogar   = $CenterContainer/MenuBox/BtnJogar
-@onready var btn_fases   = $CenterContainer/MenuBox/BtnFases
-@onready var btn_creditos= $CenterContainer/MenuBox/BtnCreditos
-@onready var btn_sair    = $CenterContainer/MenuBox/BtnSair
+@onready var btn_jogar    = $CenterContainer/MenuBox/BtnJogar
+@onready var btn_opcoes    = $CenterContainer/MenuBox/BtnOpcoes
+@onready var btn_creditos = $CenterContainer/MenuBox/BtnCreditos
+@onready var btn_sair     = $CenterContainer/MenuBox/BtnSair
 
 func _ready() -> void:
-	btn_jogar.connect("pressed", Callable(self, "_on_jogar_pressed"))
-	btn_fases.connect("pressed", Callable(self, "_on_fases_pressed"))
-	btn_creditos.connect("pressed", Callable(self, "_on_creditos_pressed"))
-	btn_sair.connect("pressed", Callable(self, "_on_sair_pressed"))
+	# Conectando os botões às funções
+	btn_jogar.pressed.connect(_quando_jogar)
+	btn_opcoes.pressed.connect(_quando_opcoes)
+	btn_creditos.pressed.connect(_quando_creditos)
+	btn_sair.pressed.connect(_quando_sair)
 
-func _on_jogar_pressed() -> void:
-	GameManager.goto("FaseEgito")
+func _quando_jogar() -> void:
+	GameManager.ir_para("FaseEgito")
 
-func _on_fases_pressed() -> void:
-	GameManager.goto("Fases")
+func _quando_opcoes() -> void:
+	GameManager.ir_para("Opcoes")
 
-func _on_creditos_pressed() -> void:
-	GameManager.goto("Creditos")
+func _quando_creditos() -> void:
+	GameManager.ir_para("Creditos")
 
-func _on_sair_pressed() -> void:
+func _quando_sair() -> void:
 	get_tree().quit()

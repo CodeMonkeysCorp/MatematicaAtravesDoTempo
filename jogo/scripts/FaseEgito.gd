@@ -1,103 +1,86 @@
-# res://scripts/FaseEgito.gd
 extends Control
 
-@onready var dialogue    = $VBoxContainer/Dialogue
-@onready var lbl_problem = $VBoxContainer/Puzzle/LabelProblem
-@onready var line_ans    = $VBoxContainer/Puzzle/HBoxContainer/LineEditAnswer
-@onready var btn_check   = $VBoxContainer/Puzzle/HBoxContainer/BtnConfirm
-@onready var lbl_feedback= $VBoxContainer/Puzzle/LabelFeedback
-@onready var btn_advance = $VBoxContainer/Puzzle/BtnAdvance
+@onready var dialogo        = $VBoxContainer/Dialogo
+@onready var lbl_problema   = $VBoxContainer/Puzzle/LabelProblema
+@onready var entrada_resposta = $VBoxContainer/Puzzle/HBoxContainer/EntradaResposta
+@onready var btn_confirmar  = $VBoxContainer/Puzzle/HBoxContainer/BtnConfirmar
+@onready var lbl_feedback   = $VBoxContainer/Puzzle/LabelFeedback
+@onready var btn_avancar    = $VBoxContainer/Puzzle/BtnAvancar
 
-var correct_numer: int = 0
-var correct_denom: int = 1
+var resposta_num: int = 0
+var resposta_den: int = 1
 
 func _ready() -> void:
-	_generate_puzzle()
-	btn_check.connect("pressed", Callable(self, "_on_check_pressed"))
-	btn_advance.connect("pressed", Callable(self, "_on_advance_pressed"))
-	btn_advance.disabled = true
+	_gerar_problema()
+	btn_confirmar.pressed.connect(_quando_confirmar)
+	btn_avancar.pressed.connect(_quando_avancar)
+	btn_avancar.disabled = true
 	lbl_feedback.text = ""
 
-# ---------- puzzle básico: soma de duas frações ----------
-func _generate_puzzle() -> void:
-	# Protótipo: frações fixas (1/2 + 1/3). Para randomizar, troque por randi()
-	var a_num := 1
-	var a_den := 2
-	var b_num := 1
-	var b_den := 3
+# ---------- Gera o problema ----------
+func _gerar_problema() -> void:
+	# Exemplo fixo: 1/2 + 1/3
+	var a_num = 1
+	var a_den = 2
+	var b_num = 1
+	var b_den = 3
 
-	lbl_problem.text = "%d/%d + %d/%d =" % [a_num, a_den, b_num, b_den]
+	lbl_problema.text = "%d/%d + %d/%d = ?" % [a_num, a_den, b_num, b_den]
 
-	correct_numer = a_num * b_den + b_num * a_den
-	correct_denom = a_den * b_den
-	_simplify_correct()
+	resposta_num = a_num * b_den + b_num * a_den
+	resposta_den = a_den * b_den
+	_simplificar()
 
-func _simplify_correct() -> void:
-	var g := gcd(correct_numer, correct_denom)
-	correct_numer = int(correct_numer / g)
-	correct_denom = int(correct_denom / g)
+# Simplifica a fração correta
+func _simplificar() -> void:
+	var mdc_val = mdc(resposta_num, resposta_den)
+	resposta_num = resposta_num / mdc_val
+	resposta_den = resposta_den / mdc_val
 
-func gcd(a, b) -> int:
-	a = int(abs(a)); b = int(abs(b))
+func mdc(a: int, b: int) -> int:
+	a = abs(a); b = abs(b)
 	while b != 0:
 		var t = b
 		b = a % b
 		a = t
 	return a
 
-# recebe input do usuário, espera formato "a/b"
-func _on_check_pressed() -> void:
-	var input_text := line_ans.text.strip()
-	var parsed := _parse_fraction(input_text)
-	if parsed == null:
-		lbl_feedback.text = "Formato inválido. Use a/b (ex: 5/6)."
-		return
-	var n := parsed[0]
-	var d := parsed[1]
-	if n * correct_denom == d * correct_numer:
-		lbl_feedback.text = "Correto! 🎉 Você resolveu a fração."
-		btn_advance.disabled = false
-	else:
-		lbl_feedback.text = "Incorreto. Dica: simplifique sua fração e tente novamente."
+# ---------- Confirma resposta ----------
+func _quando_confirmar() -> void:
+	var entrada = entrada_resposta.text.strip()
+	var frac = _ler_fracao(entrada)
 
-func _parse_fraction(s: String):
-	if s.find("/") != -1:
-		var parts := s.split("/")
-		if parts.size() != 2:
+	if frac == null:
+		lbl_feedback.text = "⚠️ Formato inválido. Use a/b (ex: 5/6)."
+		return
+
+	var n = frac[0]
+	var d = frac[1]
+
+	if n * resposta_den == d * resposta_num:
+		lbl_feedback.text = "✅ Correto! Você resolveu a fração."
+		btn_avancar.disabled = false
+	else:
+		lbl_feedback.text = "❌ Incorreto. Simplifique sua fração e tente de novo."
+
+# ---------- Avançar ----------
+func _quando_avancar() -> void:
+	GameManager.ir_para("Fases")
+
+# ---------- Função auxiliar para ler frações ----------
+func _ler_fracao(txt: String):
+	if txt.find("/") != -1:
+		var partes = txt.split("/")
+		if partes.size() != 2:
 			return null
-		# tenta converter
-		var ok_n := true
-		var ok_d := true
-		var n := 0
-		var d := 1
-		# handle spaces
-		var a := parts[0].strip()
-		var b := parts[1].strip()
-		# conversão segura
-		if a == "" or b == "":
+		var n_txt = partes[0].strip()
+		var d_txt = partes[1].strip()
+		if not n_txt.is_valid_integer() or not d_txt.is_valid_integer():
 			return null
-		# try parse ints
-		n = int(a) if a.is_valid_integer() else null
-		d = int(b) if b.is_valid_integer() else null
-		if n == null or d == null:
-			return null
+		var n = int(n_txt)
+		var d = int(d_txt)
 		if d == 0:
 			return null
-		var g := gcd(n, d)
-		n = int(n / g); d = int(d / g)
-		return [n, d]
-	elif s.find(".") != -1:
-		# aceita decimal aproximado (ex: 0.8333) -> converte pra frac com denom 1000
-		var val := float(s)
-		var denom := 1000
-		var num := int(round(val * denom))
-		var g := gcd(num, denom)
-		num = int(num / g)
-		denom = int(denom / g)
-		return [num, denom]
-	else:
-		return null
-
-func _on_advance_pressed() -> void:
-	# por enquanto volta para "Fases" (stub) — altere para próxima fase quando houver
-	GameManager.goto("Fases")
+		var g = mdc(n, d)
+		return [n / g, d / g]
+	return null
