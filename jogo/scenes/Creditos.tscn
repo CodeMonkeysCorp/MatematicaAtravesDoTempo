@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8hejxdtiaslo"]
+[gd_scene load_steps=6 format=3 uid="uid://b8hejxdtiaslo"]
 
 [ext_resource type="Texture2D" uid="uid://bmyj6ijkto62w" path="res://assets/Cenarios/Egito2.png" id="1_lm0yj"]
 [ext_resource type="Texture2D" uid="uid://bw23u3fodmv5e" path="res://assets/Menu/Menu.png" id="2_dc0wp"]
+[ext_resource type="Script" uid="uid://b1cia8nmqqjdb" path="res://scripts/Creditos.gd" id="3_p1hgr"]
 [ext_resource type="Texture2D" uid="uid://dv307y15bk3v2" path="res://assets/Menu/Sair.png" id="3_rnov5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fajg"]
+radius = 29.0
+height = 236.0
 
 [node name="Creditos" type="Node2D"]
 
@@ -19,18 +24,24 @@ size_flags_stretch_ratio = 0.0
 color = Color(0, 0, 0, 0.278431)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-scale = Vector2(0.457324, 0.327394)
+position = Vector2(964, 530)
+scale = Vector2(0.463889, 0.463889)
 texture = ExtResource("2_dc0wp")
 
-[node name="BtnVoltar" type="Button" parent="."]
-offset_left = 753.0
-offset_top = 511.0
-offset_right = 2681.0
-offset_bottom = 1599.0
-scale = Vector2(0.228804, 0.228804)
-icon = ExtResource("3_rnov5")
-flat = true
+[node name="Area2D" type="Area2D" parent="Sprite2D2"]
+position = Vector2(-2078.08, -1142.51)
+scale = Vector2(2.15569, 2.15569)
+script = ExtResource("3_p1hgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+position = Vector2(977, 683)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3fajg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2/Area2D"]
+position = Vector2(977, 683)
+scale = Vector2(0.236449, 0.236449)
+texture = ExtResource("3_rnov5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -38,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 797.0
-offset_top = 396.0
-offset_right = 1147.0
-offset_bottom = 645.0
+offset_left = 796.0
+offset_top = 363.0
+offset_right = 1146.0
+offset_bottom = 612.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
