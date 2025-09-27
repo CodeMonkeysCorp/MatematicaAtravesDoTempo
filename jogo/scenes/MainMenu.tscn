@@ -40,6 +40,7 @@ theme_override_constants/separation = 60
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Jogar"
+script = ExtResource("2_2wh52")
 
 [node name="BtnOpcoes" type="Button" parent="MenuBox"]
 layout_mode = 2
