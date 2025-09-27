@@ -1,11 +1,9 @@
 # res://scripts/GameManager.gd
 extends Node
-class_name Manager
 
-var scenes: = {
+var scenes := {
 	"MainMenu":  "res://scenes/MainMenu.tscn",
 	"FaseEgito": "res://scenes/FaseEgito.tscn",
-	"Fases":     "res://scenes/Fases.tscn",
 	"Creditos":  "res://scenes/Creditos.tscn",
 }
 
