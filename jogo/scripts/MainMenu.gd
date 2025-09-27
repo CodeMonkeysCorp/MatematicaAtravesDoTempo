@@ -13,13 +13,13 @@ func _ready() -> void:
 	btn_sair.pressed.connect(_quando_sair)
 
 func _quando_jogar() -> void:
-	GameManager.ir_para("FaseEgito")
+	Manager.goto("FaseEgito")
 
 func _quando_opcoes() -> void:
-	GameManager.ir_para("Opcoes")
+	Manager.goto("Opcoes")
 
 func _quando_creditos() -> void:
-	GameManager.ir_para("Creditos")
+	Manager.goto("Creditos")
 
 func _quando_sair() -> void:
 	get_tree().quit()
