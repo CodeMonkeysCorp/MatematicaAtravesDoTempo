@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cc5pqes5ejcxs"]
 
-[ext_resource type="Texture2D" uid="uid://4uayhfskpa4" path="res://assets/Cenarios/Egito de longe.png" id="1_ekxnf"]
-[ext_resource type="Script" uid="uid://c206gxf4nt3hl" path="res://scripts/btn_jogar.gd" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://4uayhfskpa4" path="res://assets/Cenarios/Egito de longe.png" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://c206gxf4nt3hl" path="res://scripts/btn_jogar.gd" id="2_2wh52"]
 
 [sub_resource type="FontVariation" id="FontVariation_brnl1"]
 
@@ -15,7 +15,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ekxnf")
+texture = ExtResource("1_0ykhv")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="."]
@@ -39,7 +39,7 @@ theme_override_constants/separation = 60
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Jogar"
-script = ExtResource("2_bqqt6")
+script = ExtResource("2_2wh52")
 
 [node name="BtnOpcoes" type="Button" parent="MenuBox"]
 layout_mode = 2
