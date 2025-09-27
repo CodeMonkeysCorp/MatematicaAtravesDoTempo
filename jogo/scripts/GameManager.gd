@@ -1,6 +1,6 @@
 # res://scripts/GameManager.gd
 extends Node
-class_name GameManager
+class_name Manager
 
 var scenes: = {
 	"MainMenu":  "res://scenes/MainMenu.tscn",
