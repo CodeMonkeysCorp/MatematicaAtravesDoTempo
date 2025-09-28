@@ -17,12 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManage="*res://scripts/GameManager.gd"
+GameManager="*res://scripts/GameManager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 
