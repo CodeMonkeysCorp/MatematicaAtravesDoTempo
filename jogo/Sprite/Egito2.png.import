@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwe3x7r4v7q6p"
-path="res://.godot/imported/Luca pensando com caderno e perna.png-5c3a2e08fad7ab0c30545c2c6cfc752c.ctex"
+uid="uid://ccdklopo5ag4w"
+path="res://.godot/imported/Egito2.png-854aecde83e469ec5244852f94accf91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Luca/Luca pensando com caderno e perna.png"
-dest_files=["res://.godot/imported/Luca pensando com caderno e perna.png-5c3a2e08fad7ab0c30545c2c6cfc752c.ctex"]
+source_file="res://Sprite/Egito2.png"
+dest_files=["res://.godot/imported/Egito2.png-854aecde83e469ec5244852f94accf91.ctex"]
 
 [params]
 

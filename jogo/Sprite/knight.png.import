@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwe3x7r4v7q6p"
-path="res://.godot/imported/Luca pensando com caderno e perna.png-5c3a2e08fad7ab0c30545c2c6cfc752c.ctex"
+uid="uid://bpyjlc0idqslp"
+path="res://.godot/imported/knight.png-642535035961e683dabf4943f05ebf61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Luca/Luca pensando com caderno e perna.png"
-dest_files=["res://.godot/imported/Luca pensando com caderno e perna.png-5c3a2e08fad7ab0c30545c2c6cfc752c.ctex"]
+source_file="res://Sprite/knight.png"
+dest_files=["res://.godot/imported/knight.png-642535035961e683dabf4943f05ebf61.ctex"]
 
 [params]
 

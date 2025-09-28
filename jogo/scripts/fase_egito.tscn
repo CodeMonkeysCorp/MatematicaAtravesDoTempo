@@ -1,15 +1,18 @@
-[gd_scene format=3 uid="uid://j1h1wo0mqs1p"]
+[gd_scene load_steps=2 format=3 uid="uid://cljxlgtuxltet"]
+
+[ext_resource type="Script" uid="uid://brg2ysr6ax77d" path="res://scripts/fase_egito.gd" id="1_b5040"]
 
 [node name="FaseEgito" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_b5040")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 423.0
+offset_bottom = 197.0
 
 [node name="LabelTitulo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -46,3 +49,6 @@ text = "Muito bem!"
 layout_mode = 2
 disabled = true
 text = "Avançar"
+
+[connection signal="pressed" from="VBoxContainer/Puzzle/HBoxContainer/BtnConfirmar" to="." method="_on_btn_confirmar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Puzzle/BtnAvancar" to="." method="_on_btn_avancar_pressed"]

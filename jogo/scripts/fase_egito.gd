@@ -11,20 +11,6 @@ func _ready():
 	lbl_feedback.hide()
 	btn_avancar.disabled = true
 
-func _on_BtnConfirmar_pressed():
-	var resposta = entrada_resposta.text.strip_edges()
-	print('123')
-	if _eh_equivalente(resposta, "5/6"):
-		lbl_feedback.text = "Muito bem!"
-		lbl_feedback.show()
-		btn_avancar.disabled = false
-	else:
-		lbl_feedback.text = "Tente novamente!"
-		lbl_feedback.show()
-
-func _on_BtnAvancar_pressed():
-	hide()  # fecha a cena/popup (ou pode dar queue_free se quiser destruir)
-
 # --- Função auxiliar para checar frações equivalentes ---
 func _eh_equivalente(resposta: String, alvo: String) -> bool:
 	if not resposta.contains("/"):
@@ -45,3 +31,21 @@ func _eh_equivalente(resposta: String, alvo: String) -> bool:
 		return false
 
 	return num_r * den_a == num_a * den_r
+
+
+func _on_btn_confirmar_pressed() -> void:
+	var resposta = entrada_resposta.text.strip_edges()
+	print(resposta)
+	if _eh_equivalente(resposta, "5/6"):
+		lbl_feedback.text = "Muito bem!"
+		lbl_feedback.show()
+		btn_avancar.disabled = false
+	else:
+		lbl_feedback.text = "Tente novamente!"
+		lbl_feedback.show()
+	pass # Replace with function body.
+
+
+func _on_btn_avancar_pressed() -> void:
+	hide()
+	pass # Replace with function body.
