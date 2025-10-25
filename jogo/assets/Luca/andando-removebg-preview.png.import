@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv307y15bk3v2"
-path="res://.godot/imported/Sair.png-8dd46783d81e1fc7ec47785faa82b87f.ctex"
+uid="uid://wqhsfcex1sjd"
+path="res://.godot/imported/andando-removebg-preview.png-9fe41193677860a68aa283cba2e45646.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Menu/Sair.png"
-dest_files=["res://.godot/imported/Sair.png-8dd46783d81e1fc7ec47785faa82b87f.ctex"]
+source_file="res://assets/Luca/andando-removebg-preview.png"
+dest_files=["res://.godot/imported/andando-removebg-preview.png-9fe41193677860a68aa283cba2e45646.ctex"]
 
 [params]
 

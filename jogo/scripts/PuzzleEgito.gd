@@ -47,5 +47,6 @@ func _on_btn_confirmar_pressed() -> void:
 
 
 func _on_btn_avancar_pressed() -> void:
-	hide()
+	GameManager.goto("Creditos")
+	print("Finalizou Puzzle")
 	pass # Replace with function body.

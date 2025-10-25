@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpyjlc0idqslp"
-path="res://.godot/imported/knight.png-642535035961e683dabf4943f05ebf61.ctex"
+uid="uid://3o5vcs3vhpal"
+path="res://.godot/imported/parado.png-0d149ad05ba5a9c175e06165513e8494.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/knight.png"
-dest_files=["res://.godot/imported/knight.png-642535035961e683dabf4943f05ebf61.ctex"]
+source_file="res://Sprite/parado.png"
+dest_files=["res://.godot/imported/parado.png-0d149ad05ba5a9c175e06165513e8494.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv307y15bk3v2"
-path="res://.godot/imported/Sair.png-8dd46783d81e1fc7ec47785faa82b87f.ctex"
+uid="uid://b5jaflhloqncs"
+path="res://.godot/imported/Cabeçalho.png-62d216e25438a6697cc29134b9d0aeb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Menu/Sair.png"
-dest_files=["res://.godot/imported/Sair.png-8dd46783d81e1fc7ec47785faa82b87f.ctex"]
+source_file="res://assets/Menu/Cabeçalho.png"
+dest_files=["res://.godot/imported/Cabeçalho.png-62d216e25438a6697cc29134b9d0aeb1.ctex"]
 
 [params]
 
